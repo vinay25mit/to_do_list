@@ -1,0 +1,92 @@
+<html>
+      <head>
+            <title>
+                  <%= title%> 
+                  
+            </title>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <link rel="stylesheet" href="/css/style.css">
+      </head>
+      <body>
+            <div id="outer">
+                  
+                        <center><h1 id="to_do">TO DO APP</h1></center>
+                  
+            <div class="main_div">
+                  <form action="/create-contact" method="post">
+                        <div id="des">
+                              <center><h3 id="to_do">Description</h3></center>
+
+                              <textarea style="width:100%; font-color:red; background-color:rgb(40, 40, 54);" style="width: 100%; background-color:bule;" type="text" name="name" placeholder="enter name" required></textarea>
+                        </div>
+
+
+                  <div class="bhar">
+                        <div class="las">
+                        <label for="categoary"><i><b>Choose a categoary</b></i></label>
+                        
+                        
+                        
+
+                              <select name="categoary" id="categoary">
+                              <option value="personal">Personal</option>
+                              <option value="work">Work</option>
+                              <option value="school">School</option>
+                              <option value="cleaning">cleaning</option>
+                              <option value="others">others</option>
+                              </select>
+                              
+                        </div>      
+                       
+                        <div class="bas">
+                         <label for="due_date"><i><b>Due Date</b></i></label>
+                         <br>
+                         
+                        <input type="date" id="due_date" name="due_date">
+                        <br>
+                       </div> 
+
+
+
+
+                  </div>
+                        <div class="hg">
+                  
+                        <button type="submit">add task</button>
+                        </div>
+                  
+                        
+                  </form>
+                  <%for(let i of contact_list){ %>
+                        <div class="main_contact">
+                              <div class="date"> 
+                                    <p><%=i.due_date%></p>
+                              </div>
+
+                              <div class="name">
+                                    <p class="mainText"><%=i.name%></p>
+                              </div>
+
+
+                              <div class="cate">
+                                    <p><%=i.categoary%></p>
+                              </div>
+                              <div class="del-contact ">
+                                    <a  href="/delete-contact/?id=<%=i._id%>">
+                                          <i class="fas fa-window-close"></i>
+                                    </a>
+                              </div>
+                        </div>
+                  <%}%>
+            </div>
+      </div>
+         
+      <!-- <form action="/create-contact" method="post">
+            <input type="text" name="name" placeholder="enter name" required>
+            <input type="number" name="phone" placeholder="enter phone" required>
+            <button type="submit">add contact</button>
+      </form> -->
+      <script src="/javascript/script.js"></script>
+      
+      </body>
+</html>

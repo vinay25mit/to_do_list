@@ -1,0 +1,43 @@
+<html>
+      <head>
+            <title>
+                  <%= title%>
+                  
+            </title>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <link rel="stylesheet" href="/css/style.css">
+      </head>
+      <body>
+            <div id="outer">
+            <h1>To Do App</h1>
+            <div class="main_div">
+                  <%for(let i of contact_list){ %>
+                        <div class="main_contact">
+                              <div class="phone">
+                                    <%=i.categoary%>
+                              </div>
+                              <div class="name">
+                                    <p><%=i.name%></p>
+                              </div>
+                              <div class="phone"> 
+                                    <p><%=i.phone%></p>
+                              </div>
+                              <div class="del-contact">
+                                    <a href="/delete-contact/?phone=<%=i.phone%>">
+                                          <i class="fas fa-window-close"></i>
+                                    </a>
+                              </div>
+                        </div>
+                  <%}%>
+            </div>
+            </div>
+         
+      <form action="/create-contact" method="post">
+            <input type="text" name="name" placeholder="enter name" required>
+            <input type="number" name="phone" placeholder="enter phone" required>
+            <button type="submit">add contact</button>
+      </form>
+      <script src="/javascript/script.js"></script>
+      
+      </body>
+</html>
